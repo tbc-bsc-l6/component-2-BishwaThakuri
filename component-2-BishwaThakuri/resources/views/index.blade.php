@@ -4,7 +4,21 @@
     <title>Index Page</title>
     <link rel="stylesheet" href="/css/app.css">
 </head>
-<body>
+<body class="bg">
+
+  <div class="header">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Laravel</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </nav>
+  </div>
+
+  <br>
+
     <div class="container">
     <h3>BOOKS</h3>
     <table class="table">
@@ -62,40 +76,7 @@
       </tbody>
     </table>
     
-    <br>
-    <br>
-        <h2>ADD NEW PRODUCT</h2>
-         <form action="./index.php" method="post">
-          <label for="producttype">Product Type:</label>
-          <select id="producttype" name="producttype">
-                <option value="book">Book</option>
-                <option value="cd">CD</option>
-                <option value="game">Game</option>
-          </select> 
-          <br />
-          <br />
-         <label for="name">Author / Artist / Console:</label><br />
-         <label for="fname">First Name:</label>
-           <input type="text" id="fname" name="fname"><br />
-          <label for="sname">Main Name / Surname:</label>
-           <input type="text" id="sname" name="sname">
-           <br />
-           <br />
-         <label for="title">Title:</label>
-           <input type="text" id="title" name="title">
-           <br />
-           <br />
-         <label for="pages">Pages / Duration / PEGI:</label>
-           <input type="text" id="pages" name="pages">
-           <br />
-           <br />
-          <label for="price">Price:</label>
-           <input type="text" id="price" name="price">
-           <br />
-           <br /> 
-           <input type="submit" value="Submit">
-        </form>
-
+    <a href="form">add item</a>
     </div>
 
 </body>

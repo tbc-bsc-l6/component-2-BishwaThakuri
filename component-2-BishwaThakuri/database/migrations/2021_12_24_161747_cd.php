@@ -13,8 +13,12 @@ class Cd extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('cd', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->string('name');
+            $table->sting('price');
+            $table->string('page');
             $table->timestamps();
         });
     }
