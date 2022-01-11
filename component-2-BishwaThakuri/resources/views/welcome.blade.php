@@ -3,4 +3,4 @@
 
 
 @extends('components.body')
-@extends('components.header')
+@extends('layouts.app')

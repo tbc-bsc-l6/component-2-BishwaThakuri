@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>User Profile</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -18,14 +18,13 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-</head>
+    <link rel="stylesheet" href="resources/css/app.css">
 <body>
-    <div id="app">
+	<div id="app">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <img src="images/logo.png" style="width: 120px;">
-                    <!-- {{ config('app.name', 'Laravel') }} -->
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -73,10 +72,24 @@
                 </div>
             </div>
         </nav>
-
-        <main class="py-4">
-            @yield('content')
-        </main>
     </div>
+
+	<div class="container">
+		<h1 class="title-pen"> User Profile</h1>
+		<div class="user-profile">
+			<img class="avatar" src="images/user.png" />
+		    <div class="username">{{$user->name}}</div>
+		    <div class="description">
+		      Email:- {{$user->email}}
+		  </div>
+		  <ul class="data">
+		    <li>
+		      <span class="entypo-heart">Role:- {{$user->role}}</span>
+		    </li>
+		 </ul>
+		</div>
+	</div>
+
+
 </body>
 </html>

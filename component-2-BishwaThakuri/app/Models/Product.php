@@ -5,14 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Kyslik\ColumnSortable\Sortable;
 
 class Product extends Model
 {
     use HasFactory;
 
-    protected $table = "products";
+    use Sortable;
 
-    protected $fillable = ['user_id', 'category_id', 'title','fname','lname', 'image','page','price'];
+    // protected $table = "products";
+
+    protected $fillable = ['user_id', 'category_id', 'title','fname','lname', 'image','pages','price'];
+
+    public $sortable = ['id', 'title', 'price'];
 
     public function user():BelongsTo
     {

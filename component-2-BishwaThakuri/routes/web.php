@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use App\Http\Middleware\Admin;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +17,23 @@ use App\Http\Controllers\ProductController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
+// Route::get('ping', function() {
+// 	$mailchimp = new \MailchimpMarketing\ApiClient();
+
+// 	$mailchimp->setConfig([
+// 		'apiKey' => config('services.mailchimp.key'),
+// 		'server' => 'us20'
+// 	]);
+
+// 	$response = $mailchimp->lists->getAllLists();
+// 	ddd($response);
+// });
+
+
+
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -50,6 +68,35 @@ Route::post('updateproduct/{id}',[ProductController::class,'updateProduct'])->na
 Route::get('editproduct/{id}',[ProductController::class,'editProduct'])->name('edit');
 
 Route::get('deleteproduct/{id}',[ProductController::class,'deleteProduct'])->name('delete');
+
+Route::get('components/body', [ProductController::class,'index']);
+
+Route::post('newsletter',function(){
+    request()->validate(['email'=>'required|email']);
+    $mailchimp= new \MailchimpMarketing\ApiClient();
+    $mailchimp->setConfig([
+        'apiKey'=>config('services.mailchimp.key'),
+        'server'=>'us20'
+    ]);
+    try{
+        $response=$mailchimp->lists->addListMember('1cf2f16ad2',[
+            'email_address'=>request('email'),
+            'status'=>'subscribed'
+        ]);
+    }
+    catch (\Exception $e){
+       throw \Illuminate\Validation\ValidationException::withMessages([
+            'email' =>'this email could not be added at newsletter list'
+        ]);
+    }
+ 	return redirect('/dashboard')->with('success','your are signed to our newsletter');
+});
+
+Route::get('search', function () {
+    return view('form');
+});
+
+Route::get('user-profile', [UserController::class, 'profile'])->name('user-profile');
 
 // Code to check if the csrf token is working or not 
 // Route::get('/token', function (Request $request) {

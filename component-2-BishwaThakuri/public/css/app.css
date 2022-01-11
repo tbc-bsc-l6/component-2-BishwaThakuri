@@ -474,6 +474,196 @@ input[type=text]:placeholder {
   background-color: #b0fa94;
   margin: 0px auto 15px auto !important;
 }
+
+.sort a{
+  color: white;
+  text-decoration: none;
+}
+
+/*newsletter css*/
+#newsletter {
+    background: #212529;
+    padding: 50px 0px;
+    text-align: center;
+    color: #fff;
+    margin-top: 70px;
+}
+#newsletter h3 {
+    font-size: 36px;
+    font-weight: 400;
+    color: #fff;
+}
+#newsletter p {
+    font-size: 15px;
+    font-style: italic;
+    padding: 0px;
+    margin: 25px 0px 40px;
+}
+#newsletter form {
+    background: #fff;
+    padding: 6px 10px;
+    position: relative;
+    border-radius: 50px;
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+#newsletter form input[type="email"] {
+    border: 0;
+    padding: 4px 8px;
+    width: calc(100% - 100px);
+}
+#newsletter form input[type="submit"] {
+    position: absolute;
+    top: 0;
+    right: -1px;
+    bottom: 0;
+    border: 0;
+    height: 35px;
+    background: none;
+    font-size: 16px;
+    padding: 0 20px;
+    background: #19aa8d;
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 50px;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+}
+#newsletter form input[type="submit"]:hover {
+    opacity: 0.9;
+    border: 0;
+}
+
+.error {
+  margin-top: 5px;
+  color: red;
+}
+.success {
+  margin-top: 5px;
+  color: green;
+}
+/*end newsletter  css */
+
+/*search bar css*/
+.search {
+  width: 100%;
+  display: flex;
+}
+
+.searchTerm {
+  width: 120%;
+  border: 3px solid #19aa8d;
+  padding: 5px;
+  height: 20px;
+  border-radius: 5px;
+  outline: none;
+  color: #19aa8d !important;
+  margin: 0 0 40px 0 !important;
+  height: 37px;
+  background-color: #c5c5c5 !important;
+}
+
+.searchTerm:focus{
+  color: #00B4CC;
+}
+
+.searchButton {
+  width: 50px;
+  height: 36px;
+  border: none;
+  background: #19aa8d;
+  text-align: center;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.searchButton svg {
+  height: 30px;
+}
+
+/*Resize the wrap to see the search bar change!*/
+.wrap{
+  width: 30%;
+}
+/*end search bar css*/
+
+.form-link {
+  text-decoration: none;
+  background: #19aa8d;
+  padding: 10px;
+  color: #ffff;
+  border-radius: 10px;
+  float: right;
+  margin-top: -85px;
+}
+
+/*user profile css*/
+.title-pen {
+  color: #333;
+  font-family: "Coda", sans-serif;
+  text-align: center;
+  margin: 30px auto;
+}
+.user-profile {
+  margin: auto;
+  width: 32em; 
+  height: 11em;
+  background: #fff;
+  border-radius: .3em;
+}
+
+.user-profile  .username {
+  margin: auto;
+  margin-top: -4em;
+  margin-left: 8.80em;
+  color: #658585;
+  font-size: 1.53em;
+  font-family: "Coda", sans-serif;
+  font-weight: bold;
+}
+.user-profile > .description {
+  margin: auto;
+  margin-top: 1.35em;
+  margin-right: 4.43em;
+  width: 17em;
+  color: #c0c5c5; 
+  font-size: .87em;
+  font-family: "varela round", sans-serif;
+}
+.user-profile > img.avatar {
+  padding: .7em;
+  margin-left: .3em;
+  margin-top: .3em;
+  height: 9.23em;
+  width: 9.23em;
+  border-radius: 18em;
+}
+
+.user-profile ul.data {
+  margin: 2em auto;
+  height: 3.70em;
+  background: #4eb6b6;
+  text-align: center;
+  border-radius: 0 0 .3em .3em;
+}
+.user-profile li {
+  margin: 0 auto;
+  padding: 1.30em; 
+  width: 33.33334%;
+  display: table-cell;
+  text-align: center;
+}
+
+.user-profile span {
+  font-family: "varela round", sans-serif;
+  color: #e3eeee;
+  white-space: nowrap;
+  font-size: 1.27em;
+  font-weight: bold;
+}
+/*end user profile css*/
+
 /*end my css code*/
 
 
