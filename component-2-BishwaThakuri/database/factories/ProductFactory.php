@@ -13,6 +13,7 @@ class ProductFactory extends Factory
      *
      * @return array
      */
+    // creating fake  data for different field
     public function definition()
     {
         return [

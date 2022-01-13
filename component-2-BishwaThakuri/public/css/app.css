@@ -7,9 +7,6 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
 
-
-
-
 /*my css code*/
 *, body {
     font-family: "Roboto", Helvetica, Arial, sans-serif;
@@ -17,6 +14,7 @@
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
     -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
 }
 .heading {
   text-align: center;
@@ -151,9 +149,7 @@
   font-size: 7px;
   position: absolute;
 }
-
 /*end register form css*/
-
 
 /*login form css*/
 .wrapper {
@@ -164,6 +160,13 @@
   width: 100%;
   min-height: 100%;
   padding: 20px;
+  margin-top: -70px;
+}
+.login-wrap {
+  margin-top: 30px !important;
+}
+.register-wrap {
+  margin-top: 0 !important;
 }
 
 #formContent {
@@ -592,10 +595,13 @@ input[type=text]:placeholder {
   text-decoration: none;
   background: #19aa8d;
   padding: 10px;
-  color: #ffff;
+  color: #ffff !important;
   border-radius: 10px;
   float: right;
   margin-top: -85px;
+}
+.form-link:hover {
+  opacity: 0.9;
 }
 
 /*user profile css*/
@@ -664,6 +670,42 @@ input[type=text]:placeholder {
 }
 /*end user profile css*/
 
+#myBtn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: #19aa8d;
+  color: white;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 50%;
+}
+
+#myBtn:hover {
+  opacity: 0.8;
+}
+
+#myBtn svg {
+  color: white;
+  height: 40px;
+}
+
+.line {
+  margin: 0;
+  width: 88px;
+}
+
+.validation {
+  color: #0d9d44;
+}
+.validation p {
+  margin-bottom: 0px !important;
+}
 /*end my css code*/
 
 

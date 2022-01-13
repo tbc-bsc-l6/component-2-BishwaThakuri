@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\BookController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use App\Http\Middleware\Admin;
@@ -17,23 +16,6 @@ use App\Http\Controllers\UserController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-
-// Route::get('ping', function() {
-// 	$mailchimp = new \MailchimpMarketing\ApiClient();
-
-// 	$mailchimp->setConfig([
-// 		'apiKey' => config('services.mailchimp.key'),
-// 		'server' => 'us20'
-// 	]);
-
-// 	$response = $mailchimp->lists->getAllLists();
-// 	ddd($response);
-// });
-
-
-
-
 
 Route::get('/', function () {
     return view('welcome');
@@ -53,24 +35,26 @@ Route::group(['middleware'=>'admin'],function(){
     Route::resource('/admin/users','AdminUsersController');
 });
 
+//route to open the from page
 Route::get('/form', function () {
     return view('form');
 });
 
+//route to open the update form page
 Route::get('/update', function () {
     return view('update-form');
 });
 
-Route::post('/addproduct', [ProductController::class, 'saveproduct'])->name('addproduct');
+//routes to add, update and delete product from database
+Route::post('addproduct', [ProductController::class, 'saveproduct'])->name('addproduct');
 
-Route::post('updateproduct/{id}',[ProductController::class,'updateProduct'])->name('update');
+Route::put('updateproduct/{id}',[ProductController::class,'updateProduct'])->name('update');
 
 Route::get('editproduct/{id}',[ProductController::class,'editProduct'])->name('edit');
 
-Route::get('deleteproduct/{id}',[ProductController::class,'deleteProduct'])->name('delete');
+Route::delete('deleteproduct/{id}',[ProductController::class,'deleteProduct'])->name('delete');
 
-Route::get('components/body', [ProductController::class,'index']);
-
+//route to add email to mailchimo form the newsletter form
 Route::post('newsletter',function(){
     request()->validate(['email'=>'required|email']);
     $mailchimp= new \MailchimpMarketing\ApiClient();
@@ -92,10 +76,7 @@ Route::post('newsletter',function(){
  	return redirect('/dashboard')->with('success','your are signed to our newsletter');
 });
 
-Route::get('search', function () {
-    return view('form');
-});
-
+//route to get user profile
 Route::get('user-profile', [UserController::class, 'profile'])->name('user-profile');
 
 // Code to check if the csrf token is working or not 

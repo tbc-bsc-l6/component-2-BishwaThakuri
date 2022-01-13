@@ -22,7 +22,7 @@
 <body>
 
 
-<div class="wrapper fadeInDown">
+<div class="wrapper fadeInDown login-wrap">
   <div id="formContent">
     <!-- Tabs Titles -->
 

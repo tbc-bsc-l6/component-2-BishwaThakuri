@@ -1,5 +1,6 @@
-    <div class="container">
+<button onclick="topFunction()" id="myBtn" title="Go to top">@svg('bx-up-arrow-alt')</button>
 
+    <div class="container">
       <div class="wrap">
         <form method="GET" action="{{url()->current()}}">
          
@@ -64,7 +65,7 @@
             }
             else
             {
-              $books = DB::table('products')->where('category_id', 1)->paginate(10);
+              $books = DB::table('products')->where('category_id', 1)->latest()->paginate(10);
             }
             if (Request::get('find')) {
               $books = DB::table('products')->orWhere('title', 'like', '%'.Request::get('find'). '%')->where('category_id', 1)->paginate(10);
@@ -79,7 +80,13 @@
                 <th>{{$book->price}}</th>
                 @if(auth()->check())
                   @if(auth()->user()->isAdmin())
-                  <th><a href="editproduct/{{$book->id}}">Update</a> / <a href="deleteproduct/{{$book->id}}">Delete</a></th>
+                  <th><a href="editproduct/{{$book->id}}" class="btn btn-dark mx-2 my-2">Update</a> <hr class="line">
+                    <form action="deleteproduct/{{$book->id}}" method="POST">
+                      @method('DELETE')
+                      @csrf
+                     <button type="submit" class="btn btn-dark mx-2 my-2">Delete</button>
+                    </form>
+                  </th>
                   @endif
                 @endif
               </tr>
@@ -120,7 +127,7 @@
             }
             else
             {
-              $cds = DB::table('products')->where('category_id', 2)->paginate(10);
+              $cds = DB::table('products')->where('category_id', 2)->latest()->paginate(10);
             }
             if (Request::get('find')) {
               $cds = DB::table('products')->orWhere('title', 'like', '%'.Request::get('find'). '%')->where('category_id', 2)->paginate(10);
@@ -135,7 +142,13 @@
                 <th>{{$cd->price}}</th>
                 @if(auth()->check())
                   @if(auth()->user()->isAdmin())
-                  <th><a href="editproduct/{{$cd->id}}">Update</a> / <a href="deleteproduct/{{$cd->id}}">Delete</a></th>
+                  <th><a href="editproduct/{{$cd->id}}" class="btn btn-dark mx-2 my-2">Update</a> <hr class="line">
+                  <form action="deleteproduct/{{$cd->id}}" method="POST">
+                      @method('DELETE')
+                      @csrf
+                     <button type="submit" class="btn btn-dark mx-2 my-2">Delete</button>
+                    </form>
+                  </th>
                   @endif
                 @endif
               </tr>
@@ -176,7 +189,7 @@
             }
             else
             {
-              $games = DB::table('products')->where('category_id', 3)->paginate(10);
+              $games = DB::table('products')->where('category_id', 3)->latest()->paginate(10);
             }
             if (Request::get('find')) {
               $games = DB::table('products')->orWhere('title', 'like', '%'.Request::get('find'). '%')->where('category_id', 3)->paginate(10);
@@ -191,7 +204,13 @@
                 <th>{{$game->price}}</th>
                 @if(auth()->check())
                   @if(auth()->user()->isAdmin())
-                  <th><a href="editproduct/{{$game->id}}">Update</a> / <a href="deleteproduct/{{$game->id}}">Delete</a></th>
+                  <th><a href="editproduct/{{$game->id}}" class="btn btn-dark mx-2 my-2">Update</a> <hr class="line">
+                    <form action="deleteproduct/{{$book->id}}" method="POST">
+                      @method('DELETE')
+                      @csrf
+                     <button type="submit" class="btn btn-dark mx-2 my-2">Delete</button>
+                    </form>
+                  </th>
                   @endif
                 @endif
               </tr>

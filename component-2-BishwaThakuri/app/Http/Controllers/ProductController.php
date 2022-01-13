@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
+  //to save product into the product table
     public function saveproduct(Request $request){
       $result= $this->validate($request, [
         'title'=>'required',
@@ -19,12 +20,9 @@ class ProductController extends Controller
         'price'=>'required',
         'pages'=>'required',
         'image'=>'required',
-        "category_id" => "required"
       ]);
 
       $user_id = Auth::user()->id;
-      // $category_id = Category::where('category', $result['product_type'])->get()->first();
-
 
       $product=new Product;
       $product->user_id=$user_id;
@@ -34,7 +32,6 @@ class ProductController extends Controller
       $product->title=$request->input('title');
       $product->pages=$request->input('pages');
       $product->price=$request->input('price');
-
 
       if($request->hasFile('image')){
         $file=$request->file('image');
@@ -47,6 +44,7 @@ class ProductController extends Controller
       return back()->with('product_added', 'Product has been added successfully');
     }
 
+    //update the product data from the product table
     public function updateProduct(Request $request,$id){
 
         $product=product::find($id);
@@ -71,31 +69,16 @@ class ProductController extends Controller
         return back()->with('product_update', 'Product has been updated successfully');
     }
 
+    //to edit teh product table
     public function editProduct($id){
       $product=product::find($id);
       return view('update-form', compact('product'));
     }
 
+    //to delete the product from the table
     public function deleteProduct($id){
       DB::table('products')->where('id',$id)->delete();
       return back()->with('product_delete', 'Product has been deleted successfully');
-    }
-
-    public function search(){
-      // Get the search value from the request
-     
-      $search = $_GET['query'];
-      
-      $prod=products::where('Title', 'LIKE', '%'.$search.'%')->get();
-      
-      // Return the search view with the resluts compacted
-      return view('search', compact('prod'));
-    }
-
-    public function index()
-    {
-      $products = DB::table('products')->where('category_id', 1)->sortable()->paginate(5);
-      return ViewComponent('body')->with('products', $products);
     }
 
 }

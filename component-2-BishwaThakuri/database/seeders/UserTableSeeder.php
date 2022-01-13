@@ -13,6 +13,7 @@ class UserTableSeeder extends Seeder
      *
      * @return void
      */
+    //creating a fake admin user into the user table
     public function run()
     {
         $user = User::where('email', 'special1320.bishwa@gmail.com')->first();

@@ -20,6 +20,8 @@ class User extends Authenticatable implements MustVerifyEmail
      *
      * @var array<int, string>
      */
+
+    //mass assigment
     protected $fillable = [
         'name',
         'email',
@@ -45,20 +47,22 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
     ];
 
+    //rerlation of product and user
     public function product():HasMany
     {
         return $this->hasMany(Product::class);
     }
 
+    //to check if the user is admin or not
     public function isAdmin()
     {
-        // return $this->role == 'admin';
         if ($this->role == 'admin'){
             return true;
        }
        return false;
     }
 
+    // to check if the role of user is writer
     public function isWriter()
     {
         if ($this->role == 'writer'){

@@ -12,6 +12,8 @@ class CategorySeeder extends Seeder
      *
      * @return void
      */
+
+    //creating the fake dataqa for category
     public function run()
     {
         $categories = ['Book', 'CD', 'Game'];
